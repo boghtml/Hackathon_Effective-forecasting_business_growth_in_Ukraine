@@ -1,0 +1,12 @@
+@import 'colors';
+
+.structure{
+    &-section{
+        padding-top: 200px;
+    }
+    &__text{
+        max-width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+    }
+}

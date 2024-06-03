@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Sales Data Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Online Sales Data Analysis</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-home me-2"></i>Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-info-circle me-2"></i>About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fas fa-envelope me-2"></i>Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <h1 class="my-4 text-center">Online Sales Data Analysis</h1>
+
+        {% if sample_data %}
+        <h2>Sample Data</h2>
+        <div class="table-responsive">
+            {{ sample_data|safe }}
+        </div>
+        {% endif %}
+
+        {% if analysis %}
+        <h2>Data Analysis</h2>
+        <div class="table-responsive">
+            {{ analysis|safe }}
+        </div>
+        {% endif %}
+
+        {% if outliers_text %}
+        <h2>Outliers Detection</h2>
+        <div class="table-responsive">
+            {{ outliers_text|safe }}
+        </div>
+        {% endif %}
+
+        <h2 class="text-center mb-4">Data Visualization</h2>
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <div class="image-container">
+                    <h3>Histogram</h3>
+                    <img src="{{ url_for('static', filename='images/histogram.png') }}" alt="Histogram" class="img-fluid">
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-4">
+                <div class="image-container">
+                    <h3>Boxplot</h3>
+                    <img src="{{ url_for('static', filename='images/boxplot.png') }}" alt="Boxplot" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-md-12 mb-4">
+                <div class="image-container">
+                    <h3>Correlation Matrix</h3>
+                    <img src="{{ url_for('static', filename='images/correlation_matrix.png') }}" alt="Correlation Matrix" class="img-fluid">
+                </div>
+            </div>
+            {% if sample_data %}
+            {% for column in sample_data.columns %}
+            <div class="col-md-12 mb-4">
+                <div class="image-container">
+                    <h3>Distribution of {{ column }}</h3>
+                    <img src="{{ url_for('static', filename='images/distribution_' ~ column ~ '.png') }}" alt="Distribution of {{ column }}" class="img-fluid">
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+
+        {% if feature_importance_text %}
+        <h2>Feature Importance</h2>
+        <div class="table-responsive">
+            {{ feature_importance_text|safe }}
+        </div>
+        {% endif %}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <span>&copy; 2023 Online Sales Data Analysis. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

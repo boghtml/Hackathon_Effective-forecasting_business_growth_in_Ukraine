@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Factors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+                <nav class="header__nav">
+                    <a href="#" class="logo" id="logo">
+                        <img src="../static/images/logo.png" alt="Logo" class="logo__img">
+                    </a>
+                    <ul class="header__list">
+                        <li class="header__item">
+                            <a href="#structure" class="header__link">Структура</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#description" class="header__link">Опис</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#random" class="header__link">Аналітика</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#analysis" class="header__link">Візуалізація</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#conclusion" class="header__link">Машинне навчання</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#conclusion" class="header__link">Висновок</a>
+                        </li>
+                    </ul>
+                </nav>
+        </div>
+    </header>
+    <main class="main">
+        <section class="section structure-section" id="structure">
+            <div class="container">
+                <div class="structure__inner">
+                    <h2 class="title structure__title">Структура Даних</h2>
+                    <p class="text structure__text">Цей набір даних описує продажі кухонних товарів у різних підрозділах компанії за певний період часу. Дані включають деталі про типи товарів, назви продуктів, дати та часи транзакцій, а також кількість проданих одиниць і суму виручених коштів. Це дозволяє аналізувати, які товари були найбільш популярними, в яких підрозділах відбувалося більше продажів, і які дати були найбільш активними щодо продажів. Таким чином, цей набір даних є корисним для розуміння тенденцій продажів і поведінки споживачів у різних місцях та в різний час.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="random">
+            <div class="container">
+                <div class="test">
+                    {% if sample_data %}
+                <div class="table-responsive">
+                    <table class="sample-data-table">
+                        {{ sample_data|safe }}
+                    </table>
+                </div>
+                {% endif %}
+        
+                </div>
+                {% if analysis %}
+                <h2>Data Analysis</h2>
+                <div class="table-responsive">
+                    {{ analysis|safe }}
+                </div>
+                {% endif %}
+        
+                {% if outliers_text %}
+                <h2>Outliers Detection</h2>
+                <div class="table-responsive">
+                    {{ outliers_text|safe }}
+                </div>
+                {% endif %}
+            
+                
+                </div>
+        
+                {% if feature_importance_text %}
+                <h2>Feature Importance</h2>
+                <div class="table-responsive">
+                    {{ feature_importance_text|safe }}
+                </div>
+                {% endif %}
+               </div> 
+            </div>      
+        </section>
+        
+        <section class="section description-section" id="description">
+            <div class="container">
+                <div class="description__inner">
+                    <h2 class="title description__title">Загальний Опис Даних</h2>
+                    <ul class="description__items">
+                        <li class="description__item">
+                            <img src="../static/images/1.png" alt="" class="description__item-img">
+                            <h3 class="description__item-subtitle">Аналіз Продажів</h3>
+                            <p class="description__item-text">Цей набір даних відображає продажі товарів у підрозділах. Він містить інформацію про категорії та назви товарів, дати та часи продажів, кількість проданих одиниць і загальну суму продажу. </p>
+                        </li>
+                        <li class="description__item">
+                            <img src="../static/images/2.jfif" alt="" class="description__item-img">
+                            <h3 class="description__item-subtitle">Популярні товари</h3>
+                            <p class="description__item-text">Аналізуючи ці дані, можна визначити популярні товари та пікові періоди продажів, що допоможе ефективніше керувати запасами та розробляти маркетингові стратегії.</p>
+                        </li>
+                        <li class="description__item">
+                            <img src="../static/images/3.jfif" alt="" class="description__item-img">
+                            <h3 class="description__item-subtitle">Оптимізація роботи</h3>
+                            <p class="description__item-text">Ці дані корисні для прийняття обґрунтованих рішень щодо поповнення товарних запасів та оптимізації роботи підрозділу, що позитивно вплине на дохід і задоволеність покупців.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="analysis-section" id="analysis">
+            <div class="container">
+                <div class="analysis__inner">
+                    <h2 class="title analysis__title">Візуалізація</h2>
+                   <ul class="analysis__items">
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">Гістограма сум продажів за період</h3>
+                       <div class="analysis__item-content">
+                            <p class="analysis__item-text">Гістограма показує суму продажів за кожен день січня 2024 року. Візуалізація кольорова, що допомагає побачити зміни в продажах по днях.</p>
+                            <img src="../static/images/diagram1_sum_period.png" alt="" class="analysis__item-img">
+                       </div>
+                    </li>
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">Графік сум продажів за період</h3>
+                        <div class="analysis__item-content">
+                                <img src="../static/images/diagram2_sum_period.png" alt="" class="analysis__item-img">
+                             <p class="analysis__item-text">3ображено іншу візуалізацію сум продажів за певний період</p>
+                        </div>
+                    </li>
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">Діаграма продажів за адресою Довженка, 7/1</h3>
+                       <div class="analysis__item-content">
+                            <p class="analysis__item-text">Кругова діаграма, що показує розподіл продажів за категоріями товарів у підрозділі за адресою Довженка, 7/1.
+                            </p>
+                            <img src="../static/images/diagram3_sales_by_Довженка, 7_1_pie.png" alt="" class="analysis__item-img">
+                       </div>
+                    </li>
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">Діаграма продажів за адресою Зарічанська, 3/2
+                        </h3>
+                       <div class="analysis__item-content">
+                           <img src="../static/images/diagram3_sales_by_Зарічанська, 3_2_pie.png" alt="" class="analysis__item-img">
+                            <p class="analysis__item-text">Кругова діаграма, що показує розподіл продажів за категоріями товарів у підрозділі за адресою Зарічанська, 3/2.
+                            </p>
+                       </div>
+                    </li>
+
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">Діаграма продажів за адресою Курчатова, 2/1б
+                        </h3>
+                       <div class="analysis__item-content">
+                            <p class="analysis__item-text">Кругова діаграма, що показує розподіл продажів за категоріями товарів у підрозділі за адресою Курчатова, 2/1б.
+                            </p>
+                            <img src="../static/images/diagram3_sales_by_Курчатова, 2_1б_pie.png" alt="" class="analysis__item-img">
+                       </div>
+                    </li>
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">Діаграма продажів за адресою Панаса Мирного, 14/1а</h3>
+                       <div class="analysis__item-content">
+                           <img src="../static/images/diagram3_sales_by_Панаса Мирного, 14_1а_pie.png" alt="" class="analysis__item-img">
+                            <p class="analysis__item-text">Кругова діаграма, що показує розподіл продажів за категоріями товарів у підрозділі за адресою Панаса Мирного, 14/1а.
+                            </p>
+                       </div>
+                    </li>
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">Діаграма продажів за адресою Проспект Миру, 56
+                        </h3>
+                       <div class="analysis__item-content">
+                            <p class="analysis__item-text">Кругова діаграма, що показує розподіл продажів за категоріями товарів у підрозділі за адресою Проспект Миру, 56.
+                            </p>
+                            <img src="../static/images/diagram3_sales_by_Проспект Миру, 56_pie.png" alt="" class="analysis__item-img">
+                       </div>
+                    </li>
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">Діаграма продажів за адресою Пілотська, 117</h3>
+                       <div class="analysis__item-content">
+                           <img src="../static/images/diagram3_sales_by_Пілотська, 117_pie.png" alt="" class="analysis__item-img">
+                            <p class="analysis__item-text">Кругова діаграма, що показує розподіл продажів за категоріями товарів у підрозділі за адресою Пілотська, 117.
+                            </p>
+                       </div>
+                    </li>
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">Діаграма продажів за адресою Шевченка, 70/1</h3>
+                       <div class="analysis__item-content">
+                           <img src="../static/images/diagram3_sales_by_Шевченка,70_1_pie.png" alt="" class="analysis__item-img">
+                            <p class="analysis__item-text">Кругова діаграма, що показує розподіл продажів за категоріями товарів у підрозділі за адресою Шевченка, 70/1.
+                            </p>
+                       </div>
+                    </li>
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">Діаграма продажів за підрозділами з легендою</h3>
+                       <div class="analysis__item-content">
+                           <img src="../static/images/diagram4_sales_by_department_pie_with_legend.png" alt="" class="analysis__item-img">
+                            <p class="analysis__item-text">Кругова діаграма, що показує розподіл продажів за різними підрозділами компанії. Містить легенду для зручності інтерпретації.
+                            </p>
+                       </div>
+                    </li>
+
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">Сума продажів десяти товарів</h3>
+                       <div class="analysis__item-content">
+                            <p class="analysis__item-text">Графік відображає суму продажів десяти найпопулярніших товарів за січень 2024 року. Кожен товар має окрему строку з відповідною сумою продажів.
+                                Висновки: Найпопулярніший товар - "Мінітерка Часникотер нерж. сталь (NA0050KT)" з сумою 17724.73. Інші популярні товари включають "Терка Охайний кулінар (HB8829TS)" та "Точилка для ножів Легкоточ з двома точилами кераміка (NA0135KT)".
+                                </p>
+                            <img src="../static/images/diagram5_sales_by_product.png" alt="" class="analysis__item-img">
+                       </div>
+                    </li>
+
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">Вплив дня тижня на продажі</h3>
+                       <div class="analysis__item-content">
+                           <img src="../static/images/photo_5393548557006528471_y.jpg" alt="" class="analysis__item-img">
+                            <p class="analysis__item-text">Графік відображає частоту покупок протягом тижня, розділену на часові інтервали. Візуалізація допомагає визначити, в які дні тижня спостерігається найбільша активність покупців.</p>
+                       </div>
+                    </li>
+
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">Вплив часу доп на продажі</h3>
+                       <div class="analysis__item-content">
+                            <p class="analysis__item-text">Графік відображає частоту покупок протягом дня, розділену на часові інтервали. Візуалізація допомагає визначити, в які години дня спостерігається найбільша активність покупців.</p>
+                            <img src="../static/images/photo_5393548557006528472_y.jpg" alt="" class="analysis__item-img">
+                       </div>
+                    </li>
+
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">Сума продажів по підрозділах</h3>
+                       <div class="analysis__item-content">
+                            <p class="analysis__item-text">Графік відображає суму продажів по всіх наявних підрозділах</p>
+                            <img  src="../static/images/photo_5393548557006528551_y.jpg" alt="" class="analysis__item-img img-large">
+                       </div>
+                    </li>
+
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">10 Топових товарів</h3>
+                       <div class="analysis__item-content">
+                           <img src="../static/images/photo_5393548557006528552_y.jpg" alt="" class="analysis__item-img img-large">
+                            <p class="analysis__item-text">Графік відображає суму продажів по 10 товарах</p>
+                       </div>
+                    </li>
+
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">Сума продажів по видах номенклатури</h3>
+                       <div class="analysis__item-content">
+                            <p class="analysis__item-text">Графік відображає суму продажів по видах номенклатури</p>
+                            <img src="../static/images/photo_5393548557006528553_y.jpg" alt="" class="analysis__item-img img-large">
+                       </div>
+                    </li>
+
+                    <li class="analysis__item">
+                        <h3 class="analysis__item-title">Динаміка продажів у часі</h3>
+                       <div class="analysis__item-content">
+                           <img src="../static/images/photo_5393548557006528554_y.jpg" alt="" class="analysis__item-img img-large">
+                            <p class="analysis__item-text">Графік відображає динаміку продажів</p>
+                       </div>
+                    </li>
+                   </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section machine-learning">
+            <div class="container">
+                <h2 class="title structure__title">Машинне навчання</h2>
+
+                <div class="machine-learning__section">
+                    <ul class="machine-learning__list">
+                        <li class="machine-learning__item">
+                            <h3 class="machine-learning__title">Важливість згрупованого фактора для прогнозування попиту</h3>
+                            <img src="../static/images/learning/1.jpg" alt="" class="machine-learning__img">
+                        </li>
+                        <li class="machine-learning__item">
+                            <h3 class="machine-learning__title">Важливість факторів</h3>
+                            <img src="../static/images/learning/2.jpg" alt="" class="machine-learning__img">
+                        </li>
+                        <li class="machine-learning__item">
+                            <h3 class="machine-learning__title">Важливість факторів градієнтом</h3>
+                            <img src="../static/images/learning/3.jpg" alt="" class="machine-learning__img">
+                        </li>
+                        <li class="machine-learning__item">
+                            <h3 class="machine-learning__title">Логарифмічна важливість факторів</h3>
+                            <img src="../static/images/learning/4.jpg" alt="" class="machine-learning__img">
+                        </li>
+                        <li class="machine-learning__item">
+                            <h3 class="machine-learning__title">Важливість факторів - Випадковий ліс</h3>
+                            <img src="../static/images/learning/5.jpg" alt="" class="machine-learning__img">
+                        </li>
+                        <li class="machine-learning__item">
+                            <h3 class="machine-learning__title">Результати моделей та їх точність</h3>
+                            <img src="../static/images/learning/6.jpg" alt="" class="machine-learning__img">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-conclusion" id="conclusion">
+            <div class="container">
+                <div class="conclusion__inner">
+                    <h2 class="title conclusion__title">Висновок</h2>
+                    <p class="text conclusion__text">Data Analytics
+                        Під час аналізу даних ми провели глибоке дослідження, перевіряючи пропущені значення, статистичні характеристики, унікальні значення, а також аналізуючи розподіли і кореляції змінних. Для візуалізації були створені гістограми, boxplot-и, кореляційні матриці та графіки, що показують вплив дня тижня та часу доби на продажі. Використання трьох моделей машинного навчання (RandomForest, GradientBoosting, LinearRegression) до і після додавання сезонних факторів дозволило суттєво покращити точність прогнозів та зрозуміти вплив сезонності на продажі.
+                    </p>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="../static/jquery/main.js"></script>
+</body>
+
+</html>

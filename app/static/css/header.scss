@@ -1,0 +1,35 @@
+.header{
+    background: linear-gradient(to right, $color-gradient-start, $color-gradient-end);
+    border-bottom: 3px solid $color-text;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 10px 0;
+    z-index: 9;
+    &__nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__list{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__item{
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: opacity .3s transform .3s;
+        letter-spacing: 3px;
+        font-size: 18px;
+        transition: all .3s;
+        margin-right: 30px;
+        &:hover{
+            opacity: .7;
+            transform: scale(1.04);
+        }
+        &:last-of-type{
+            margin-right: 0;
+        }
+    }
+}

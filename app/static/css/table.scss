@@ -1,0 +1,33 @@
+
+.table-responsive{
+
+    margin: 0 auto;
+}
+.sample-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    border-radius: 67px;
+}
+
+.sample-data-table th,
+.sample-data-table td {
+    padding: 0.75rem;
+    text-align: left;
+
+    border-bottom: 1px solid #dee2e6;
+}
+
+.sample-data-table th {
+    background-color: #0080ff;
+    font-weight: bold;
+}
+
+.sample-data-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.sample-data-table tr:hover {
+    background-color: #e9ecef;
+}
+
